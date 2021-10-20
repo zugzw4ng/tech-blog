@@ -97,7 +97,7 @@ router.put('/:id', withAuth, (req, res) => {
     )
         .then(dbPostData => {
             if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with that ID!' });
+                res.status(404).json({ message: 'Post not found.' });
                 return;
             }
             res.json(dbPostData);
@@ -107,3 +107,24 @@ router.put('/:id', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
+
+router.delete('/:id', withAuth, (req, res) => {
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'Post not found.' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+module.exports = router;
