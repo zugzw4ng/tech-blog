@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             'user_id',
             'post_id'
         ],
-        order: [['created_at', 'DESC']]
+        order: [['DESC']]
     }).then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
             console.log(err);
