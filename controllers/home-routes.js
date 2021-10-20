@@ -56,13 +56,11 @@ router.get('/post/:id', (req, res) => {
             'id',
             'post_url',
             'title',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
         ],
         include: [
             {
                 model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                attributes: ['id', 'comment_text', 'post_id', 'user_id'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -76,7 +74,7 @@ router.get('/post/:id', (req, res) => {
     })
         .then(dbPostData => {
             if (!dbPostData) {
-                res.status(404).json({ message: 'No post found with this ID!' });
+                res.status(404).json({ message: 'Post not found.' });
                 return;
             }
             const post = dbPostData.get({ plain: true });
