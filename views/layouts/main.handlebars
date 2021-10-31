@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tech Deck</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
@@ -16,7 +17,7 @@
             </h1>
             <nav>
                 {{#if loggedIn}}
-                <a href="/dashboard">dashboard</a>
+                <a href="/user-page">Your Profile</a>
                 <button id="logout" class='btn-no-style'>logout</button>
                 {{else}}
                 <a href="/login">login</a>
@@ -34,6 +35,7 @@
     {{#if loggedIn}}
     <script src="/public/js/logout.js"></script>
     {{/if}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>
