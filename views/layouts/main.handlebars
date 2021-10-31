@@ -5,31 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Tech Deck</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 
-<body>
-    <div class="wrapper">
-        <header>
-            <h1>
-                <a href="/" class="href">The Tech Deck</a>
-            </h1>
-            <nav>
-                {{#if loggedIn}}
-                <a href="/user-page">Your Profile</a>
-                <button id="logout" class='btn-no-style'>logout</button>
-                {{else}}
-                <a href="/login">login</a>
-                {{/if}}
-            </nav>
-        </header>
-        <main>
-            {{{ body }}}
-        </main>
-        <footer>
-            Thanks for visiting!
-        </footer>
+<body class="orange lighten-5">
+    <nav class="nav-mobile">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    {{#if loggedIn}}
+                    <a href="/user-page" class="btn">your profile</a>
+                    <a id="logout" class="btn">logout</a>
+                    {{else}}
+                    <a href="/login">login</a>
+                    {{/if}}
+                </div>>
+            </div>
+        </div>
+    </nav>
+
+    <div class=section>
+        {{{body}}}
     </div>
 
     {{#if loggedIn}}
